@@ -2,7 +2,6 @@
   <div class="container">
     <div>
       {{ searchedMovies[0].title }}
-      <img src="" />
     </div>
     <movie-poster />
   </div>
