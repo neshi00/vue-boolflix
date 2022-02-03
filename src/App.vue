@@ -1,28 +1,39 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <header-search @search="callApi" />
+    <main-app :searchedMovies="arraySearchedMovies" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import axios from "axios";
+import HeaderSearch from "./components/HeaderSearch.vue";
+import MainApp from "./components/MainApp.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    HeaderSearch,
+    MainApp,
+  },
+  data() {
+    return {
+      arraySearchedMovies: [],
+    };
+  },
+  methods: {
+    callApi() {
+      axios
+        .get(
+          "https://api.themoviedb.org/3/search/movie?api_key=6f184fdd682e9397025fe5bbc2979a0f&query=titanic"
+        )
+        .then((response) => {
+          console.log(response.data);
+          this.arraySearchedMovies = response.data.results;
+        });
+    },
+  },
+};
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style lang="scss"></style>
