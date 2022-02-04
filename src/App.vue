@@ -25,15 +25,19 @@ export default {
     callApi() {
       axios
         .get(
-          "https://api.themoviedb.org/3/search/movie?api_key=6f184fdd682e9397025fe5bbc2979a0f&query=titanic"
+          "https://api.themoviedb.org/3/search/movie?api_key=6f184fdd682e9397025fe5bbc2979a0f&query=future"
         )
         .then((response) => {
           console.log(response.data);
           this.arraySearchedMovies = response.data.results;
         });
     },
+    // creare metodo che costruisce path poster
   },
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+// creare variabile scss per base moviedb
+// creare variabile scss per api key
+</style>

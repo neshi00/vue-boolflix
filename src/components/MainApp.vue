@@ -1,9 +1,10 @@
 <template>
   <div class="container">
-    <div>
-      {{ searchedMovies[0].title }}
-    </div>
-    <movie-poster />
+    <movie-poster
+      v-for="movie in searchedMovies"
+      :key="movie"
+      :oneMovie="movie"
+    />
   </div>
 </template>
 
@@ -22,9 +23,8 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  width: 1200px;
-  margin: 0 auto;
   height: 600px; //******** */
-  background-color: gray;
+  display: flex;
+  flex-wrap: wrap;
 }
 </style>
