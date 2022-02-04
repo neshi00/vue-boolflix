@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header-search @search="callApi" />
-    <main-app :searchedMovies="arraySearchedMovies" />
+    <main-app :movieList="movieList" />
   </div>
 </template>
 
@@ -18,26 +18,26 @@ export default {
   },
   data() {
     return {
-      arraySearchedMovies: [],
+      movieList: [],
+      api_key: "6f184fdd682e9397025fe5bbc2979a0f",
     };
   },
   methods: {
-    callApi() {
-      axios
-        .get(
-          "https://api.themoviedb.org/3/search/movie?api_key=6f184fdd682e9397025fe5bbc2979a0f&query=future"
-        )
+    callApi(searched) {
+      const params = {
+        query: searched,
+        api_key: this.api_key,
+      };
+
+      return axios
+        .get(`https://api.themoviedb.org/3/search/movie`, { params })
         .then((response) => {
-          console.log(response.data);
-          this.arraySearchedMovies = response.data.results;
+          console.log(response.data.results);
+          this.movieList = response.data.results;
         });
     },
-    // creare metodo che costruisce path poster
   },
 };
 </script>
 
-<style lang="scss">
-// creare variabile scss per base moviedb
-// creare variabile scss per api key
-</style>
+<style lang="scss"></style>

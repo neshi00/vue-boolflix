@@ -1,22 +1,18 @@
 <template>
   <div class="container">
-    <movie-poster
-      v-for="movie in searchedMovies"
-      :key="movie"
-      :oneMovie="movie"
-    />
+    <movie-card v-for="movie in movieList" :key="movie.id" :movie="movie" />
   </div>
 </template>
 
 <script>
-import MoviePoster from "./MoviePoster.vue";
+import MovieCard from "./MovieCard.vue";
 
 export default {
   components: {
-    MoviePoster,
+    MovieCard,
   },
   props: {
-    searchedMovies: Array,
+    movieList: Array,
   },
 };
 </script>
