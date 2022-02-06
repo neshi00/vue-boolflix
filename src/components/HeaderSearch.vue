@@ -31,6 +31,8 @@ header {
 
   span {
     color: red;
+    font-weight: bold;
+    font-size: 30px;
   }
 }
 </style>
