@@ -1,11 +1,19 @@
 <template>
   <div class="card-container">
     <div class="card">
-      <img :src="'https://image.tmdb.org/t/p/original/' + movie.poster_path" />
-      <div>{{ movie.title }}</div>
-      <div>{{ movie.original_title }}</div>
-      <div>{{ movie.original_language }}</div>
-      <div>{{ movie.vote_average }}</div>
+      <div id="show">
+        <img
+          :src="'https://image.tmdb.org/t/p/original/' + movie.poster_path"
+        />
+      </div>
+      <div id="hide">
+        <div class="info">
+          <div>{{ movie.original_title }}</div>
+          <div id="overview">{{ movie.overview }}</div>
+          <div class="info-bottom">LINGUA: {{ movie.original_language }}</div>
+          <div class="info-bottom">VOTO: {{ movie.vote_average }}</div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -20,12 +28,45 @@ export default {
 
 <style lang="scss" scoped>
 .card-container {
-  background-color: gray;
-  width: calc(100% / 6);
+  background-color: #000;
+  width: calc(100% / 5);
 
   .card {
+    padding: 10px;
+    color: #fff;
+
+    &:hover {
+      #show {
+        display: none;
+      }
+
+      #hide {
+        display: block;
+      }
+    }
+
     img {
       width: 100%;
+      height: 400px;
+    }
+    #hide {
+      display: none;
+
+      .info {
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        padding: 20px;
+
+        #overview {
+          padding: 10px;
+          font-size: 10px;
+        }
+
+        .info-bottom {
+          margin-top: 20px;
+        }
+      }
     }
   }
 }
