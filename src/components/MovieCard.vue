@@ -3,6 +3,11 @@
     <div class="card">
       <div id="show">
         <img
+          v-if="movie.poster_path === null"
+          src="https://www.tutelaminoriunife.it/tm/wp-content/uploads/2013/06/copertina-non-disponibile.jpg"
+        />
+        <img
+          v-else
           :src="'https://image.tmdb.org/t/p/original/' + movie.poster_path"
         />
       </div>
