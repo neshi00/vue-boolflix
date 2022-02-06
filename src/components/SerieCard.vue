@@ -10,8 +10,13 @@
         <div class="info">
           <div>{{ serie.original_name }}</div>
           <div id="overview">{{ serie.overview }}</div>
-
-          <div class="info-bottom">{{ serie.original_language }}</div>
+          <div class="info-bottom">
+            <img
+              v-if="languages.includes(serie.original_language)"
+              :src="`/flags/${serie.original_language}.png`"
+            />
+            <span v-else {{serie.original_language}}></span>
+          </div>
           <div class="info-bottom">{{ serie.vote_average }}</div>
         </div>
       </div>
@@ -23,6 +28,7 @@
 export default {
   props: {
     serie: Object,
+    languages: Array,
   },
 };
 </script>
@@ -67,6 +73,11 @@ export default {
 
         .info-bottom {
           margin-top: 20px;
+
+          img {
+            width: 30px;
+            height: 15px;
+          }
         }
       }
     }

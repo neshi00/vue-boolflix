@@ -10,7 +10,13 @@
         <div class="info">
           <div>{{ movie.original_title }}</div>
           <div id="overview">{{ movie.overview }}</div>
-          <div class="info-bottom">LINGUA: {{ movie.original_language }}</div>
+          <div class="info-bottom">
+            <img
+              v-if="languages.includes(movie.original_language)"
+              :src="`/flags/${movie.original_language}.png`"
+            />
+            <span v-else {{movie.original_language}}></span>
+          </div>
           <div class="info-bottom">VOTO: {{ movie.vote_average }}</div>
         </div>
       </div>
@@ -22,6 +28,7 @@
 export default {
   props: {
     movie: Object,
+    languages: Array,
   },
 };
 </script>
@@ -65,6 +72,11 @@ export default {
 
         .info-bottom {
           margin-top: 20px;
+
+          img {
+            width: 30px;
+            height: 15px;
+          }
         }
       }
     }

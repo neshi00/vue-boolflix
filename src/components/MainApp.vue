@@ -1,8 +1,18 @@
 <template>
   <div class="container">
-    <movie-card v-for="movie in movieList" :key="movie.id" :movie="movie" />
+    <movie-card
+      v-for="movie in movieList"
+      :key="movie.id"
+      :movie="movie"
+      :languages="languages"
+    />
 
-    <serie-card v-for="serie in seriesList" :key="serie.id" :serie="serie" />
+    <serie-card
+      v-for="serie in seriesList"
+      :key="serie.id"
+      :serie="serie"
+      :languages="languages"
+    />
   </div>
 </template>
 
@@ -14,6 +24,11 @@ export default {
   components: {
     MovieCard,
     SerieCard,
+  },
+  data() {
+    return {
+      languages: ["it", "en", "fr", "de", "us", "es"],
+    };
   },
   props: {
     movieList: Array,
