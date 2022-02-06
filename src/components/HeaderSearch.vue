@@ -7,7 +7,7 @@
         placeholder="Scrivi il titolo di un film"
         v-model="searched"
       />
-      <button @click="$emit('search')">Clicca per cercare</button>
+      <button @click="$emit('search', searched)">Clicca per cercare</button>
     </div>
   </header>
 </template>

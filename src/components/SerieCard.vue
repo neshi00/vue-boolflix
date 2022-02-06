@@ -1,11 +1,9 @@
 <template>
   <div class="card-container">
     <div class="card">
-      <img :src="'https://image.tmdb.org/t/p/original/' + movie.poster_path" />
-      <div>{{ movie.title }}</div>
-      <div>{{ movie.original_title }}</div>
-      <div>{{ movie.original_language }}</div>
-      <div>{{ movie.vote_average }}</div>
+      <img :src="'https://image.tmdb.org/t/p/original/' + serie.poster_path" />
+      <div>{{ serie.original_name }}</div>
+      <div>{{ serie.original_language }}</div>
     </div>
   </div>
 </template>
@@ -13,7 +11,7 @@
 <script>
 export default {
   props: {
-    movie: Object,
+    serie: Object,
   },
 };
 </script>
