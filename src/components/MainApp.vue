@@ -39,7 +39,6 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  height: 600px; //******** */
   display: flex;
   flex-wrap: wrap;
 }

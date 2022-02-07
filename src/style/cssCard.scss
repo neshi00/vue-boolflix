@@ -1,0 +1,50 @@
+.card-container {
+  background-color: #000;
+  width: calc(100% / 5);
+
+  .card {
+    color: #fff;
+    padding: 5px;
+
+    &:hover {
+      #show {
+        display: none;
+      }
+
+      #hide {
+        display: block;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 400px;
+    }
+    #hide {
+      display: none;
+
+      .info {
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        padding: 10px;
+
+        #overview {
+          padding: 10px;
+          font-size: 10px;
+        }
+
+        .details {
+          img {
+            width: 30px;
+            height: 15px;
+          }
+
+          .fas.fa-star {
+            color: yellow;
+          }
+        }
+      }
+    }
+  }
+}

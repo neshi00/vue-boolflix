@@ -4,10 +4,10 @@
     <div>
       <input
         type="text"
-        placeholder="Scrivi il titolo di un film"
+        placeholder="Cerca"
         v-model="searched"
+        @keyup.enter="$emit('search', searched)"
       />
-      <button @click="$emit('search', searched)">Clicca per cercare</button>
     </div>
   </header>
 </template>
@@ -32,7 +32,13 @@ header {
   span {
     color: red;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 35px;
+  }
+
+  input {
+    margin: 10px 0;
+    border-radius: 5px;
+    padding: 2px 0;
   }
 }
 </style>

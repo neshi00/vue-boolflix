@@ -4,11 +4,11 @@
       <div id="show">
         <img
           v-if="serie.poster_path === null"
-          src="https://www.tutelaminoriunife.it/tm/wp-content/uploads/2013/06/copertina-non-disponibile.jpg"
+          src="/images/not-available.jpeg"
         />
 
         <img
-          v-esle
+          v-else
           :src="'https://image.tmdb.org/t/p/original/' + serie.poster_path"
         />
       </div>
@@ -16,14 +16,24 @@
         <div class="info">
           <div>{{ serie.original_name }}</div>
           <div id="overview">{{ serie.overview }}</div>
-          <div class="info-bottom">
+
+          <div class="details">
+            <span>LINGUA: </span>
             <img
               v-if="languages.includes(serie.original_language)"
               :src="`/flags/${serie.original_language}.png`"
             />
-            <span v-else {{serie.original_language}}></span>
+            <p v-else {{serie.original_language}}></p>
           </div>
-          <div class="info-bottom">{{ serie.vote_average }}</div>
+
+          <div class="details">
+            <span>VOTO:</span>
+            <i
+              v-for="index in Math.round(serie.vote_average / 2)"
+              :key="index"
+              class="fas fa-star"
+            ></i>
+          </div>
         </div>
       </div>
     </div>
@@ -40,53 +50,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.card-container {
-  background-color: #000;
-  width: calc(100% / 5);
-
-  .card {
-    padding: 10px;
-    color: #fff;
-
-    &:hover {
-      #show {
-        display: none;
-      }
-
-      #hide {
-        display: block;
-      }
-    }
-
-    img {
-      width: 100%;
-      height: 400px;
-    }
-
-    #hide {
-      display: none;
-
-      .info {
-        font-size: 20px;
-        font-weight: bold;
-        text-align: center;
-        padding: 20px;
-
-        #overview {
-          padding: 10px;
-          font-size: 10px;
-        }
-
-        .info-bottom {
-          margin-top: 20px;
-
-          img {
-            width: 30px;
-            height: 15px;
-          }
-        }
-      }
-    }
-  }
-}
+@import "../style/cssCard.scss";
 </style>
