@@ -23,7 +23,7 @@
               v-if="languages.includes(serie.original_language)"
               :src="`/flags/${serie.original_language}.png`"
             />
-            <p v-else {{serie.original_language}}></p>
+            <p v-else>{{ serie.original_language }}></p>
           </div>
 
           <div class="details">

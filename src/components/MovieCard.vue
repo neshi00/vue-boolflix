@@ -14,20 +14,23 @@
       </div>
       <div id="hide">
         <div class="info">
-          <div>{{ movie.original_title }}</div>
+          <div v-if="movie.title !== movie.original_tile" id="title">
+            {{ movie.title }}
+          </div>
+
           <div id="overview">{{ movie.overview }}</div>
 
           <div class="details">
-            <span>LINGUA:</span>
+            <span>LINGUA: </span>
             <img
               v-if="languages.includes(movie.original_language)"
               :src="`/flags/${movie.original_language}.png`"
             />
-            <span v-else {{movie.original_language}}></span>
+            <span v-else> {{ movie.original_language }}</span>
           </div>
 
           <div class="details">
-            <span>VOTO:</span>
+            <span>VOTO: </span>
             <i
               v-for="index in Math.round(movie.vote_average / 2)"
               :key="index"
