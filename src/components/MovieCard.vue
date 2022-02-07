@@ -14,8 +14,12 @@
       </div>
       <div id="hide">
         <div class="info">
-          <div v-if="movie.title !== movie.original_tile" id="title">
+          <div id="title">
             {{ movie.title }}
+          </div>
+          <div v-if="movie.original_title !== movie.title">
+            {{ movie.original_title }}
+            <p>(Titolo Originale)</p>
           </div>
 
           <div id="overview">{{ movie.overview }}</div>
